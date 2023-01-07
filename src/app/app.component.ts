@@ -17,11 +17,20 @@ export class AppComponent {
     { description: 'laugh', done: false },
   ];
 
+  // method get các item
   get items() {
     if (this.filter === 'all') {
       return this.allItems;
     }
     return this.allItems.filter((item) => this.filter === 'done' ? item.done : !item.done);
+  }
+
+  // method thêm item
+  addItem(description: string) {
+    this.allItems.unshift({
+      description,
+      done: false
+    });
   }
 
 }
